@@ -5,17 +5,19 @@ angular.module('fish-pond')
     this.showDescription = !this.showDescription;
   };
 })
+
 .component('fishTableRow', {
   bindings: {
     fish: '<'
   },
   controller: 'FishTableCtrl',
   template: `
-    <div ng-click="$ctrl.toggleDescription()">
-      <span class="fish-name">Nemo</span>
+    <div ng-click="$ctrl.toggleDescription()" >
+      <span class="fish-name">{{$ctrl.fish.name}}</span>
       <span>
-        <img src="http://tinyurl.com/h8o5szh" />
+        <img src={{$ctrl.fish.image}}/ >
       </span>
-      <span class="fish-description" ng-if="$ctrl.showDescription">Does anyone know where my dad is?</span>
+      <span class="fish-description" ng-if="$ctrl.showDescription">{{$ctrl.fish.description}}</span>
     </div>`
 });
+
